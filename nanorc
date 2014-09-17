@@ -1,28 +1,88 @@
-## Here is an example for nanorc files.
+# .nanorc - rc file for the nano editor
 
-syntax "nanorc" "\.?nanorc$"
+# These syntax highlighting definitions come from
+# https://github.com/scopatz/nanorc
+# ?? some didn't work, copied php.nanorc and sh.nanorc from brew
+# installation at /usr/local/share/nano/, no replacement for
+# bad zsh.nanoc
 
-# Possible errors and parameters
-icolor brightred "^[[:space:]]*((un)?(bind|set)|include|syntax|header|magic|linter|i?color|extendsyntax).*$"
+include "~/.nano/apacheconf.nanorc"
+include "~/.nano/asciidoc.nanorc"
+include "~/.nano/asm.nanorc"
+include "~/.nano/awk.nanorc"
+include "~/.nano/c.nanorc"
+include "~/.nano/cmake.nanorc"
+include "~/.nano/coffeescript.nanorc"
+include "~/.nano/colortest.nanorc"
+include "~/.nano/conf.nanorc"
+include "~/.nano/csharp.nanorc"
+include "~/.nano/css.nanorc"
+include "~/.nano/cython.nanorc"
+include "~/.nano/dot.nanorc"
+include "~/.nano/email.nanorc"
+include "~/.nano/fish.nanorc"
+include "~/.nano/fortran.nanorc"
+include "~/.nano/gentoo.nanorc"
+include "~/.nano/git.nanorc"
+include "~/.nano/gitcommit.nanorc"
+include "~/.nano/glsl.nanorc"
+include "~/.nano/go.nanorc"
+include "~/.nano/groff.nanorc"
+include "~/.nano/haml.nanorc"
+include "~/.nano/html.nanorc"
+include "~/.nano/ini.nanorc"
+include "~/.nano/inputrc.nanorc"
+include "~/.nano/java.nanorc"
+include "~/.nano/javascript.nanorc"
+include "~/.nano/js.nanorc"
+include "~/.nano/json.nanorc"
+include "~/.nano/keymap.nanorc"
+include "~/.nano/kickstart.nanorc"
+include "~/.nano/ledger.nanorc"
+include "~/.nano/lisp.nanorc"
+include "~/.nano/lua.nanorc"
+include "~/.nano/makefile.nanorc"
+include "~/.nano/man.nanorc"
+include "~/.nano/markdown.nanorc"
+include "~/.nano/mpdconf.nanorc"
+include "~/.nano/mutt.nanorc"
+include "~/.nano/nanorc.nanorc"
+include "~/.nano/nginx.nanorc"
+include "~/.nano/patch.nanorc"
+include "~/.nano/peg.nanorc"
+include "~/.nano/perl.nanorc"
+include "~/.nano/php.nanorc"
+include "~/.nano/pkg-config.nanorc"
+include "~/.nano/pkgbuild.nanorc"
+include "~/.nano/po.nanorc"
+include "~/.nano/pov.nanorc"
+include "~/.nano/privoxy.nanorc"
+include "~/.nano/python.nanorc"
+include "~/.nano/reST.nanorc"
+include "~/.nano/rpmspec.nanorc"
+include "~/.nano/ruby.nanorc"
+include "~/.nano/scala.nanorc"
+include "~/.nano/sed.nanorc"
+include "~/.nano/sh.nanorc"
+include "~/.nano/sql.nanorc"
+include "~/.nano/systemd.nanorc"
+include "~/.nano/tcl.nanorc"
+include "~/.nano/tex.nanorc"
+include "~/.nano/vala.nanorc"
+include "~/.nano/vi.nanorc"
+include "~/.nano/xml.nanorc"
+include "~/.nano/xresources.nanorc"
+include "~/.nano/yaml.nanorc"
+include "~/.nano/yum.nanorc"
 
-# Keywords
-icolor brightgreen "^[[:space:]]*(set|unset)[[:space:]]+(allow_insecure_backup|autoindent|backup|backwards|boldtext|casesensitive|const|cut|fill|historylog|locking|morespace|mouse|multibuffer|noconvert|nofollow|nohelp|nonewlines|nowrap|poslog|preserve|quickblank|quiet|rebinddelete|rebindkeypad|regexp|smarthome|smooth|softwrap|suspend|tabsize|tabstospaces|tempfile|undo|view|wordbounds)\>"
-icolor yellow "^[[:space:]]*set[[:space:]]+(functioncolor|keycolor|statuscolor|titlecolor)[[:space:]]+(bright)?(white|black|red|blue|green|yellow|magenta|cyan)?(,(white|black|red|blue|green|yellow|magenta|cyan))?\>"
-icolor brightgreen "^[[:space:]]*set[[:space:]]+(backupdir|brackets|functioncolor|keycolor|matchbrackets|operatingdir|punct|quotestr|speller|statuscolor|titlecolor|whitespace)[[:space:]]+"
-icolor brightgreen "^[[:space:]]*bind[[:space:]]+((\^|M-)([[:alpha:]]|space|[]]|[0-9_=+{}|;:'\",./<>\?-])|F([1-9]|1[0-6])|Ins|Del)[[:space:]]+[[:alpha:]]+[[:space:]]+[[:alpha:]]+[[:space:]]*$"
-icolor brightgreen "^[[:space:]]*unbind[[:space:]]+((\^|M-)([[:alpha:]]|space|[]]|[0-9_=+{}|;:'\",./<>\?-])|F([1-9]|1[0-6])|Ins|Del)[[:space:]]+[[:alpha:]]+[[:space:]]*$"
-icolor brightgreen "^[[:space:]]*extendsyntax[[:space:]]+[[:alpha:]]+[[:space:]]+(i?color|header|magic|linter)[[:space:]]+.*$"
-icolor green "^[[:space:]]*((un)?(bind|set)|include|syntax|header|magic|linter|extendsyntax)\>"
+# Settings
+# as per http://www.if-not-true-then-false.com/2009/tuning-nano-text-editor-with-nanorc/
 
-# Colors
-icolor yellow "^[[:space:]]*i?color[[:space:]]*(bright)?(white|black|red|blue|green|yellow|magenta|cyan)?(,(white|black|red|blue|green|yellow|magenta|cyan))?\>"
-icolor magenta "^[[:space:]]*i?color\>" "\<(start|end)="
-
-# Strings
-icolor brightmagenta ""(\\.|[^"])*""
-# Comments
-icolor brightblue "^[[:space:]]*#.*$"
-icolor cyan "^[[:space:]]*##.*$"
-
-# Trailing whitespace
-color ,green "[[:space:]]+$"
+set mouse #set mouse
+set tabstospaces # Convert typed tabs to spaces.
+set tabsize 2 # Set width of a tab to #cols columns, must be greater than 0.
+set autoindent # Indent new lines to the previous line’s indentation.
+set smooth # Text will scroll line-by-line, instead of the usual chunk-by-chunk behavior.
+set const # Constantly show the cursor position.
+set historylog
+set backupdir "~/.backup/nano-backups"
