@@ -16,3 +16,6 @@ shopt -s histappend
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
+
+# History verification, so that commands matched by ! !! and !? are not auto
+shopt -s histverify
