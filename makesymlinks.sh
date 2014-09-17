@@ -10,7 +10,7 @@ echo "makesymlinks.sh begun."
 
 dir=~/.dotfiles                    # dotfiles directory
 olddir=~/.dotfiles/dotfiles_old             # old dotfiles backup directory
-files="bashrc bash_profile curlrc gitattributes gitconfig gitignore profile"    # list of files/folders to symlink in homedir
+files="bashrc bash_profile curlrc gitattributes gitconfig gitignore profile git-prompt-colors.sh inputrc git-prompt-colors.sh nanorc"    # list of files/folders to symlink in homedir
 
 #### Create Directories
 
