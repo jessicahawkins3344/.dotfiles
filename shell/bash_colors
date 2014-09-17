@@ -20,7 +20,6 @@ export CLICOLOR=1
 ### as per https://github.com/seebi/dircolors-solarized/issues/10
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
-
 ### Colors for Light Terminal Themes
 ### as per http://antesarkkinen.com/blog/add-colors-to-os-x-terminal-including-ls-and-nano/
 # export LSCOLORS=ExFxBxDxCxegedabagacad
