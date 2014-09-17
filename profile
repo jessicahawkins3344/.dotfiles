@@ -14,7 +14,7 @@
 # Show debug notice when there is path.
 # (i.e. shell is interactive, and not during cron jobs).
 
-if [ -z "$PS1" ]; then
+if [ -n "$PS1" ]; then
    echo "~/.profile loaded."
 fi
 
