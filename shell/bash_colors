@@ -14,8 +14,6 @@ fi
 #### CLI Colors (Mac OSX and Free BSC)
 export CLICOLOR=1
 
-### CLI Colors (GNU)
-
 ## ls colors
 
 ### Solarized 'ls' colors if we are using Mac OSX `ls`
