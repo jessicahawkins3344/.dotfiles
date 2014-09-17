@@ -3,8 +3,8 @@
 # These syntax highlighting definitions come from
 # https://github.com/scopatz/nanorc
 # ?? some didn't work, copied php.nanorc and sh.nanorc from brew
-# installation at /usr/local/share/nano/, no replacement for
-# bad zsh.nanoc
+# installation at /usr/local/share/nano/, copied sh.nanorc for
+# bad zsh.nanoc.
 
 include "~/.nano/apacheconf.nanorc"
 include "~/.nano/asciidoc.nanorc"
@@ -74,6 +74,7 @@ include "~/.nano/xml.nanorc"
 include "~/.nano/xresources.nanorc"
 include "~/.nano/yaml.nanorc"
 include "~/.nano/yum.nanorc"
+include "~/.nano/zsh.nanorc"
 
 # Settings
 # as per http://www.if-not-true-then-false.com/2009/tuning-nano-text-editor-with-nanorc/
