@@ -15,8 +15,7 @@ if [ -z "$PS1" ]; then
    echo "~/.profile loaded."
 fi
 
-# pathhelper from Apple default /private/etc/bashrc, plus empty PATH
-# as per http://www.softec.lu/site/DevelopersCorner/MasteringThePathHelper
+# pathhelper from Apple default /private/etc/bashrc
 if [ -x /usr/libexec/path_helper ]; then
 	PATH=""
 	eval `/usr/libexec/path_helper -s`
