@@ -4,6 +4,12 @@
 
 echo "...~/.dotfiles/shell/bash_exports loaded."
 
+if [[ `uname` == 'Darwin' ]]; then
+  # Set architecture flags
+  export ARCHFLAGS="-arch x86_64"
+
+fi
+
 # Use nano, installed from Brew, as the default editor
 export EDITOR="/usr/local/bin/nano"
 
