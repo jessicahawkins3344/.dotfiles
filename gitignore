@@ -2,6 +2,8 @@
 ._*
 .DS_Store
 Thumbs.db
+Icon?
+.cache
 
 # Files that might appear on external disks
 .Spotlight-V100
@@ -18,3 +20,17 @@ Thumbs.db
 *.sass-cache
 *.sw?
 *.vi
+
+# Folders to ignore
+.hg
+.svn
+.tmp
+/tmp
+.temp
+/temp
+
+# Node.js package manager
+/node_modules
+/npm-debug.log
+
+# Project stuff
