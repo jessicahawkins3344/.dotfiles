@@ -11,7 +11,6 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 
-
 ## set hostname of machine
 
 echo 'Enter new hostname of the machine (e.g. aegus)'
