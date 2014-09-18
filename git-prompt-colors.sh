@@ -19,7 +19,7 @@ define_git_prompt_colors() {
   GIT_PROMPT_STASHED="${BoldBlue}⚑ "    # the number of stashed files/dir
   GIT_PROMPT_CLEAN="${BoldGreen}✔"      # a colored flag indicating a "clean" repo
 
-  # For the command indicator, the placeholder _LAST_COMMAND_STATE_ 
+  # For the command indicator, the placeholder _LAST_COMMAND_STATE_
   # will be replaced with the exit code of the last command
   # e.g.
   # GIT_PROMPT_COMMAND_OK="${Green}✔-_LAST_COMMAND_STATE_ "    # indicator if the last command returned with an exit code of 0
@@ -30,8 +30,8 @@ define_git_prompt_colors() {
 
   GIT_PROMPT_START_USER="${Yellow}${PathShort}${ResetColor}"
   GIT_PROMPT_START_ROOT="${Yellow}${PathShort}${ResetColor}"
-  GIT_PROMPT_END_USER=" \n${White}${Time12a}${ResetColor} $ "
-  GIT_PROMPT_END_ROOT=" \n${White}${Time12a}${ResetColor} # "
+  GIT_PROMPT_END_USER=" \n${DimBlue}${Time12a}${ResetColor} $ "
+  GIT_PROMPT_END_ROOT=" \n${DimBlue}${Time12a}${ResetColor} # "
 
   # Please do not add colors to these symbols
   GIT_PROMPT_SYMBOLS_AHEAD="↑·"         # The symbol for "n versions ahead of origin"
