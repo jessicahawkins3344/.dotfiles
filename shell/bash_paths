@@ -17,6 +17,7 @@ declare -a dirs_to_append=(
     "$HOME/.rvm/bin"
     "$(brew --prefix coreutils)/libexec/gnubin" # Add brew-installed GNU core utilities bin
     "$(brew --prefix)/share/npm/bin" # Add npm-installed package bin
+    "~/.rvm/scripts/rvm"
 )
 
 # Prepend directories to PATH
