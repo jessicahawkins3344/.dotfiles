@@ -17,7 +17,7 @@ declare -a dirs_to_append=(
     "$HOME/.rvm/bin"
     "$(brew --prefix coreutils)/libexec/gnubin" # Add brew-installed GNU core utilities bin
     "$(brew --prefix)/share/npm/bin" # Add npm-installed package bin
-    "~/.rvm/scripts/rvm"
+    "~/.rvm/scripts/rvm" #rvm shell
 )
 
 # Prepend directories to PATH
@@ -37,6 +37,8 @@ do
         PATH="$PATH:${dirs_to_append[$index]}"
     fi
 done
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 unset dirs_to_prepend dirs_to_append
 
