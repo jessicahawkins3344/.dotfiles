@@ -35,6 +35,12 @@ export LS_COLORS="di=36;40:ln=35;40:so=31;:pi=0;:ex=1;;40:bd=0;:cd=37;:su=37;:sg
 ## grep colors to highlight matches
 export GREP_OPTIONS='--color=auto'
 
+## Git Colors
+git config --global color.ui true
+git config --global color.diff auto
+git config --global color.status auto
+git config --global color.branch auto
+
 ## If Generic Colourizer (GRC) is installed (brew install grc)
 ## http://kassiopeia.juls.savba.sk/~garabik/software/grc.html
 ## add colors for make, gcc,g++, as, gas, ld, netstat, ping, traceroute,
