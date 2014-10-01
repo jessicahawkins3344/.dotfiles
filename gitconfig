@@ -43,8 +43,11 @@
 
 [color]
     # color opts: normal, black, red, green, yellow, blue, magenta, cyan, or white
-    ui = auto
+	ui = true
     interactive = auto
+	diff = auto
+	status = auto
+	branch = auto
 
 [core]
     # Use custom `.gitignore` and `.gitattributes`
