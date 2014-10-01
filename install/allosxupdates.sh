@@ -2,7 +2,7 @@
 
 # Execute on a new machine via:
 
-# $ curl -L https://raw.githubusercontent.com/ChristopherA/dotfiles/master/install/installosxupdates.sh | bash
+# $ curl -L https://raw.githubusercontent.com/ChristopherA/dotfiles/master/install/allosxupdates.sh | bash
 
 # Ask for the administrator password upfront
 echo -e "\nInstalling on a new machine. Administrator password is required."
