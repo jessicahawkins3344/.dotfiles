@@ -546,10 +546,10 @@ sudo mdutil -E / > /dev/null
 defaults write com.apple.terminal StringEncodings -array 4
 
 # Use a modified version of the Solarized Dark theme by default in Terminal.app
-TERM_PROFILE='Solarized Dark xterm-256color';
+TERM_PROFILE='christophera-dark.terminal';
 CURRENT_PROFILE="$(defaults read com.apple.terminal 'Default Window Settings')";
 if [ "${CURRENT_PROFILE}" != "${TERM_PROFILE}" ]; then
-	open "${HOME}/init/${TERM_PROFILE}.terminal";
+	open "${HOME}/.dotfiles/osxterminal/${TERM_PROFILE}.terminal";
 	sleep 1; # Wait a bit to make sure the theme is loaded
 	defaults write com.apple.terminal 'Default Window Settings' -string "${TERM_PROFILE}";
 	defaults write com.apple.terminal 'Startup Window Settings' -string "${TERM_PROFILE}";
