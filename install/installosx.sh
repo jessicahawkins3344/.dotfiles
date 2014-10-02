@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-# ~/.osx — https://mths.be/osx
+# Originally from Mathias Bynens' famous ~/.osx — https://mths.be/osx
+# https://github.com/mathiasbynens/dotfiles
+
+# Modified by for https://github.com/christophera/dotfiles
 
 # Ask for the administrator password upfront
 sudo -v
@@ -561,7 +564,7 @@ fi;
 #defaults write org.x.X11 wm_ffm -bool true
 
 # Install the Solarized Dark theme for iTerm
-open "${HOME}/init/Solarized Dark.itermcolors"
+# open "${HOME}/init/Solarized Dark.itermcolors"
 
 # Don’t display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
