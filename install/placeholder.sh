@@ -1,7 +1,15 @@
 #!/bin/bash
 
+# To investigate
+# http://secrets.blacktree.com/?search=finder
+# auto accept facetime http://hints.macworld.com/article.php?story=20110222080854178
+# facetime ringtone http://www.mackungfu.org/custom-facetime-ringtone
+# http://blog.jameskyle.org/2010/08/osx-defaults-hacks/
+# http://superuser.com/questions/677961/strategy-to-maintain-dotfiles-for-different-oss-i-e-osx-and-ubuntu
+
+
 DEV="$HOME/Development"
-DOTFILES="$HOME/dotfiles"
+DOTFILES="$HOME/.dotfiles"
 BIN="/usr/local/bin"
 
 # Ask for the administrator password upfront
@@ -10,16 +18,6 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until `.osx` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-
-## set hostname of machine
-
-echo 'Enter new hostname of the machine (e.g. aegus)'
-  read HOSTNAME
-  sudo scutil --set HostName "$HOSTNAME"
-  COMPNAME=$(sudo scutil --get HostName | tr '-' '.')
-  sudo scutil --set ComputerName "$COMPNAME"
-  sudo scutil --set LocalHostName "$COMPNAME"
-  sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$COMPNAME"
 
 ## sublime settings
 
@@ -32,7 +30,6 @@ for p in /Applications/Dropbox.app/Contents/Resources/*-lep.tiff; do echo cp $p 
 
 # exclude directories from Time Machine backups
 tmutil addexclusion ~/Downloads
-tmutil addexclusion ~/Movies
 
 ## Install Menlo-ForPowerline Font
 wget --directory-prefix=$HOME/Downloads/ https://gist.github.com/raw/1627888/c4e92f81f7956d4ceaee11b5a7b4c445f786dd90/Menlo-ForPowerline.ttc.zip
@@ -62,5 +59,12 @@ qlmanage -r
 # Restart automatically if the computer freezes
 systemsetup -setrestartfreeze on
 
-# Enable fast user switching
-defaults write /Library/Preferences/.GlobalPreferences MultipleSessionEnabled -bool YES
+
+# github ssh
+
+echo 'Checking for SSH key, generating one if it does not exist...'
+  [[ -f '~/.ssh/id_rsa.pub' ]] || ssh-keygen -t rsa
+
+echo 'Copying public key to clipboard. Paste it into your Github account...'
+  [[ -f '~/.ssh/id_rsa.pub' ]] && cat '~/.ssh/id_rsa.pub' | pbcopy
+  open 'https://github.com/account/ssh'
