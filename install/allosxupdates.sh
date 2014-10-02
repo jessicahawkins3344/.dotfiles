@@ -5,7 +5,7 @@
 # $ curl -L https://raw.githubusercontent.com/ChristopherA/dotfiles/master/install/allosxupdates.sh | bash
 
 # Ask for the administrator password upfront
-echo -e "\nInstalling on a new machine. Administrator password is required."
+echo -e "\nUpdating system software and developer tools. Your administrator password will be required."
 sudo -v
 
 # What kind of OS are we running?
