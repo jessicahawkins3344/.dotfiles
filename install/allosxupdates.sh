@@ -180,6 +180,12 @@ if [[ `uname` == 'Darwin' ]]; then
     brew install git-extras # https://github.com/visionmedia/git-extras
     brew install bash-completion # http://bash-completion.alioth.debian.org
 
+    ### update Mac OSX's nano
+    ### as per https://github.com/Homebrew/homebrew-dupes
+    ### also updates curses
+    brew tap homebrew/dupes
+    brew install nano
+
     # Cleaning up Brew and Cask caches
 
     echo "Cleaning up Brew and brew Cask caches"
