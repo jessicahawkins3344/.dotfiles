@@ -459,6 +459,7 @@ defaults write com.apple.Dock showhidden -bool YES
 
 # Add a 'Recent Applications' stack to the Dock.
 #defaults write com.apple.dock persistent-others -array-add '{ "tile-data" = { "list-type" = 1; }; "tile-type" = "recents-tile"; }'
+# Add mulitples of these an manually change them to Recent Docs, Servers, Favorite Volumes and Favorite items
 
 # Don’t animate opening applications from the Dock
 defaults write com.apple.dock launchanim -bool false
@@ -495,14 +496,14 @@ defaults write com.apple.dock autohide-delay -float 0
 # Remove the animation when hiding/showing the Dock
 defaults write com.apple.dock autohide-time-modifier -float 0
 
-# Enable the 2D Dock
-#defaults write com.apple.dock no-glass -bool true
-
 # Make Dock icons of hidden applications translucent
 defaults write com.apple.dock showhidden -bool true
 
 # Make Dock more transparent
 defaults write com.apple.dock hide-mirror -bool true
+
+# Show only active applications in dock, hide the rest from view
+# defaults write com.apple.dock static-only -bool TRUE
 
 # Disable the Launchpad gesture (pinch with thumb and three fingers)
 #defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
@@ -895,6 +896,14 @@ echo "Disabled, Out-of-date"
 
 # Always show the ~/Library folder (doesn't seem to work in 10.9 or 10.10)
 #chflags nohidden ~/Library
+
+# Pin the Dock to the start under apple menu (rather than default middle or end)
+# Doesn't seem to work on 10.10
+#defaults write com.apple.dock pinning -string start
+
+#Enable the 2D Dock (not availble in Mavericks)
+#defaults write com.apple.dock no-glass -bool true
+
 
 ###############################################################################
 # Kill affected applications                                                  #
