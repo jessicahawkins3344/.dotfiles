@@ -7,10 +7,14 @@
 # http://blog.jameskyle.org/2010/08/osx-defaults-hacks/
 # http://superuser.com/questions/677961/strategy-to-maintain-dotfiles-for-different-oss-i-e-osx-and-ubuntu
 
-
 DEV="$HOME/Development"
-DOTFILES="$HOME/.dotfiles"
+DOTFILES="$HOME/dotfiles"
 BIN="/usr/local/bin"
+
+## install brew bundle
+
+brew bundle $DOTFILES/osx/Brewfile
+
 
 # Ask for the administrator password upfront
 sudo -v
@@ -18,6 +22,16 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until `.osx` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+
+## set hostname of machine
+
+echo 'Enter new hostname of the machine (e.g. aegus)'
+  read HOSTNAME
+  sudo scutil --set HostName "$HOSTNAME"
+  COMPNAME=$(sudo scutil --get HostName | tr '-' '.')
+  sudo scutil --set ComputerName "$COMPNAME"
+  sudo scutil --set LocalHostName "$COMPNAME"
+  sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$COMPNAME"
 
 ## sublime settings
 
@@ -30,6 +44,7 @@ for p in /Applications/Dropbox.app/Contents/Resources/*-lep.tiff; do echo cp $p 
 
 # exclude directories from Time Machine backups
 tmutil addexclusion ~/Downloads
+tmutil addexclusion ~/Movies
 
 ## Install Menlo-ForPowerline Font
 wget --directory-prefix=$HOME/Downloads/ https://gist.github.com/raw/1627888/c4e92f81f7956d4ceaee11b5a7b4c445f786dd90/Menlo-ForPowerline.ttc.zip
@@ -59,6 +74,8 @@ qlmanage -r
 # Restart automatically if the computer freezes
 systemsetup -setrestartfreeze on
 
+# Enable fast user switching
+defaults write /Library/Preferences/.GlobalPreferences MultipleSessionEnabled -bool YES
 
 # github ssh
 
