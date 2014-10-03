@@ -62,9 +62,6 @@ defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.5
 # Set sidebar icon size to medium
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 
-# Enable snap-to-grid for desktop icons
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-
 # Always show scrollbars
 defaults write NSGlobalDomain AppleShowScrollBars -string "WhenScrolling"
 # Possible values: `WhenScrolling`, `Automatic` and `Always`
@@ -133,12 +130,6 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 
 # Disable smart dashes as they’re annoying when typing code
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
-
-# Set a custom wallpaper image. `DefaultDesktop.jpg` is already a symlink, and
-# all wallpapers are in `/Library/Desktop Pictures/`. The default is `Wave.jpg`.
-#rm -rf ~/Library/Application Support/Dock/desktoppicture.db
-#sudo rm -rf /System/Library/CoreServices/DefaultDesktop.jpg
-#sudo ln -s /path/to/your/image /System/Library/CoreServices/DefaultDesktop.jpg
 
 ###############################################################################
 # SSD-specific tweaks                                                         #
@@ -269,34 +260,6 @@ defaults write com.apple.iTunes full-window -1
 #defaults write com.apple.iTunes disablePing -bool true
 
 ###############################################################################
-# Screen                                                                      #
-###############################################################################
-
-echo "Screen"
-
-# Require password immediately after sleep or screen saver begins
-#defaults write com.apple.screensaver askForPassword -int 1
-#defaults write com.apple.screensaver askForPasswordDelay -int 0
-
-# Save screenshots to the desktop
-defaults write com.apple.screencapture location -string "${HOME}/Pictures/Screenshots"
-
-# Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
-defaults write com.apple.screencapture type -string "png"
-
-# Disable shadow in screenshots
-defaults write com.apple.screencapture disable-shadow -bool true
-
-# Enable subpixel font rendering on non-Apple LCDs
-defaults write NSGlobalDomain AppleFontSmoothing -int 2
-
-# Enable HiDPI display modes (requires restart)
-sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
-
-# Change login screen background
-sudo defaults write /Library/Preferences/com.apple.loginwindow DesktopPicture "/Library/Desktop\ Pictures/Forest\ in\ Mist.jpg"
-
-###############################################################################
 # Finder                                                                      #
 ###############################################################################
 
@@ -322,7 +285,7 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 # Finder: show hidden files by default
 #defaults write com.apple.finder AppleShowAllFiles -bool true
 
-# Finder: show all filename extensions
+# Finder: show all filename extensions true/false
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 # Finder: show status bar
@@ -401,9 +364,6 @@ defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 # Enable the MacBook Air SuperDrive on any Mac
 sudo nvram boot-args="mbasd=1"
 
-# Show the ~/Library folder
-chflags nohidden ~/Library
-
 # Remove Dropbox’s green checkmark icons in Finder
 file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
 [ -e "${file}" ] && mv -f "${file}" "${file}.bak"
@@ -414,6 +374,50 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 	General -bool true \
 	OpenWith -bool true \
 	Privileges -bool true
+
+###############################################################################
+# Desktop                                                                     #
+###############################################################################
+
+echo "Desktop"
+
+# Enable snap-to-grid for desktop icons
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+
+# Set a custom wallpaper image. `DefaultDesktop.jpg` is already a symlink, and
+# all wallpapers are in `/Library/Desktop Pictures/`. The default is `Wave.jpg`.
+#rm -rf ~/Library/Application Support/Dock/desktoppicture.db
+#sudo rm -rf /System/Library/CoreServices/DefaultDesktop.jpg
+#sudo ln -s /path/to/your/image /System/Library/CoreServices/DefaultDesktop.jpg
+
+###############################################################################
+# Screen                                                                      #
+###############################################################################
+
+echo "Screen"
+
+# Require password immediately after sleep or screen saver begins
+#defaults write com.apple.screensaver askForPassword -int 1
+#defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+# Save screenshots to the desktop
+defaults write com.apple.screencapture location -string "${HOME}/Pictures/Screenshots"
+
+# Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
+defaults write com.apple.screencapture type -string "png"
+
+# Disable shadow in screenshots
+defaults write com.apple.screencapture disable-shadow -bool true
+
+# Enable subpixel font rendering on non-Apple LCDs
+defaults write NSGlobalDomain AppleFontSmoothing -int 2
+
+# Enable HiDPI display modes (requires restart)
+sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
+
+# Change login screen background
+sudo defaults write /Library/Preferences/com.apple.loginwindow DesktopPicture "/Library/Desktop\ Pictures/Forest\ in\ Mist.jpg"
+
 
 ###############################################################################
 # Clock, Dock, Dashboard, and hot corners                                            #
@@ -451,10 +455,10 @@ defaults write com.apple.Dock showhidden -bool YES
 # Wipe all (default) app icons from the Dock
 # This is only really useful when setting up a new Mac, or if you don’t use
 # the Dock to launch apps.
-defaults write com.apple.dock persistent-apps -array ""
+#defaults write com.apple.dock persistent-apps -array ""
 
 # Add a 'Recent Applications' stack to the Dock.
-defaults write com.apple.dock persistent-others -array-add '{ "tile-data" = { "list-type" = 1; }; "tile-type" = "recents-tile"; }'
+#defaults write com.apple.dock persistent-others -array-add '{ "tile-data" = { "list-type" = 1; }; "tile-type" = "recents-tile"; }'
 
 # Don’t animate opening applications from the Dock
 defaults write com.apple.dock launchanim -bool false
@@ -475,16 +479,24 @@ defaults write com.apple.dock dashboard-in-overlay -bool true
 # Don’t automatically rearrange Spaces based on most recent use
 defaults write com.apple.dock mru-spaces -bool false
 
+# Hides the dock when external display is connected
+
+if [ `system_profiler SPDisplaysDataType | grep 'Cinema\|Thunderbolt' | wc -l` -eq "1" ]; then
+    # Automatically hide and show the Dock
+    defaults write com.apple.dock autohide -bool false
+else #we are on laptop screen
+  # Always show the Dock
+  defaults write com.apple.dock autohide true
+fi
+
 # Remove the auto-hiding Dock delay
 defaults write com.apple.dock autohide-delay -float 0
+
 # Remove the animation when hiding/showing the Dock
 defaults write com.apple.dock autohide-time-modifier -float 0
 
 # Enable the 2D Dock
 #defaults write com.apple.dock no-glass -bool true
-
-# Automatically hide and show the Dock
-defaults write com.apple.dock autohide -bool true
 
 # Make Dock icons of hidden applications translucent
 defaults write com.apple.dock showhidden -bool true
@@ -519,10 +531,10 @@ find "${HOME}/Library/Application Support/Dock" -name "*-*.db" -maxdepth 1 -dele
 # 11: Launchpad
 # 12: Notification Center
 # Top left screen corner → Mission Control
-defaults write com.apple.dock wvous-tl-corner -int 2
+defaults write com.apple.dock wvous-tl-corner -int 0
 defaults write com.apple.dock wvous-tl-modifier -int 0
 # Top right screen corner → Desktop
-defaults write com.apple.dock wvous-tr-corner -int 4
+defaults write com.apple.dock wvous-tr-corner -int 0
 defaults write com.apple.dock wvous-tr-modifier -int 0
 # Bottom left screen corner → Start screen saver
 defaults write com.apple.dock wvous-bl-corner -int 5
@@ -640,20 +652,20 @@ echo "Spotlight"
 echo "Terminal & iTerm 2"
 
 # Only use UTF-8 in Terminal.app
-defaults write com.apple.terminal StringEncodings -array 4
+#defaults write com.apple.terminal StringEncodings -array 4
 
 # Use a modified version of the Solarized Dark theme by default in Terminal.app
 TERM_PROFILE='christophera-dark';
 CURRENT_PROFILE="$(defaults read com.apple.terminal 'Default Window Settings')";
 if [ "${CURRENT_PROFILE}" != "${TERM_PROFILE}" ]; then
-	open "${HOME}/.dotfiles/osxterminal/${TERM_PROFILE}.terminal";
+	open "${HOME}/.dotfiles/install/osxterminal/${TERM_PROFILE}.terminal";
 	sleep 1; # Wait a bit to make sure the theme is loaded
 	defaults write com.apple.terminal 'Default Window Settings' -string "${TERM_PROFILE}";
 	defaults write com.apple.terminal 'Startup Window Settings' -string "${TERM_PROFILE}";
 fi;
 
 # Move cursor with option-click
-defaults write com.apple.Terminal OptionClickToMoveCursor -boolean
+#defaults write com.apple.Terminal OptionClickToMoveCursor -boolean
 
 # Enable “focus follows mouse” for Terminal.app and all X11 apps
 # i.e. hover over a window and start typing in it without clicking first
@@ -666,7 +678,7 @@ defaults write com.apple.Terminal OptionClickToMoveCursor -boolean
 # open "${HOME}/init/Solarized Dark.itermcolors"
 
 # Don’t display the annoying prompt when quitting iTerm
-defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+#defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
 ###############################################################################
 # Time Machine                                                                #
@@ -789,6 +801,14 @@ defaults write com.irradiatedsoftware.SizeUp StartAtLogin -bool true
 # Don’t show the preferences window on next start
 defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false
 
+if [ `system_profiler SPDisplaysDataType | grep 'Cinema\|Thunderbolt' | wc -l` -eq "1" ]; then
+    # Give room on right to show icons
+    defaults write com.irradiatedsoftware.SizeUp MarginRight 240
+else #we are on laptop screen
+  # On laptop, fill screen
+  defaults write com.irradiatedsoftware.SizeUp MarginRight 240
+fi
+
 ###############################################################################
 # Sublime Text                                                                #
 ###############################################################################
@@ -826,7 +846,7 @@ defaults write org.m0k.transmission WarningLegal -bool false
 echo "Xcode"
 
 # Enable internal debug menu
-defaults write com.apple.dt.Xcode ShowDVTDebugMenu -bool
+#defaults write com.apple.dt.Xcode ShowDVTDebugMenu -bool
 
 ###############################################################################
 # Twitter.app                                                                 #
@@ -856,23 +876,25 @@ defaults write com.twitter.twitter-mac ShowFullNames -bool true
 defaults write com.twitter.twitter-mac HideInBackground -bool true
 
 ###############################################################################
-# Misc.                                                                #
+# Disabled, Out-of-date                                                       #
 ###############################################################################
 
-echo "Misc"
+echo "Disabled, Out-of-date"
 
 # Maps Debugging
-com.apple.defaults.managed DebugPanelEnabled -None
+#com.apple.defaults.managed DebugPanelEnabled -None
 
 # Show debug menu in iBooks
-defaults write com.apple.iBooksX BKShowDebugMenu -boolean
+#defaults write com.apple.iBooksX BKShowDebugMenu -boolean
 
 # Enable debug menu in iCal
-defaults write com.apple.iCal IncludeDebugMenu -boolean
+#defaults write com.apple.iCal IncludeDebugMenu -boolean
 
 # Enable fast user switching
-defaults write /Library/Preferences/.GlobalPreferences MultipleSessionEnabled -bool YES
+#defaults write /Library/Preferences/.GlobalPreferences MultipleSessionEnabled -bool YES
 
+# Always show the ~/Library folder (doesn't seem to work in 10.9 or 10.10)
+#chflags nohidden ~/Library
 
 ###############################################################################
 # Kill affected applications                                                  #
@@ -886,4 +908,10 @@ for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
 	"Terminal" "Transmission" "Twitter" "iCal"; do
 	killall "${app}" > /dev/null 2>&1
 done
+
+sleep 2
+
+# Reopen apps that were closed that should always be open
+if [ -e ~/Applications/Sizeup.app ]; then open ~/Applications/Sizeup.app; fi
+
 echo "Done. Note that some of these changes require a logout/restart to take effect."
