@@ -25,6 +25,8 @@ BIN="/usr/local/bin"
 if [ -e "/Applications/Dropbox.app" ] || [ -e "~/Applications/Dropbox.app" ]
 then
   ## Dropbox.app exists
+  ## info as per https://www.dropbox.com/help/4584 &
+  ## http://stackoverflow.com/questions/26187788/retrieve-dropbox-personal-path-from-dropbox-info-json-in-bash-script
   PERSONAL_DROPBOX_PATH = $(tr '\n' ' ' < ~/.dropbox/info.json | sed -n 's/.*"personal":[^}]*"path": "\([^"]*\)",.*/\1/p')
 else
   ## Dropbox.app does not exist
@@ -358,7 +360,7 @@ defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:gridSpacing 100" ~/Library/Preferences/com.apple.finder.plist
 
 # Increase the size of icons on the desktop and in other icon views
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 24" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 40" ~/Library/Preferences/com.apple.finder.plist
 
 # Text size under icons
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:textSize 12" ~/Library/Preferences/com.apple.finder.plist
@@ -836,7 +838,7 @@ defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false
 
 if [ `system_profiler SPDisplaysDataType | grep 'Cinema\|Thunderbolt' | wc -l` -eq "1" ]; then
     # Give room on right to show icons
-    defaults write com.irradiatedsoftware.SizeUp MarginRight 260
+    defaults write com.irradiatedsoftware.SizeUp MarginRight 220
 else #we are on laptop screen
   # On laptop, fill screen
   defaults write com.irradiatedsoftware.SizeUp MarginRight 240
@@ -963,13 +965,18 @@ read KEY
 
 for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
 	"Dock" "Finder" "Mail" "Messages" "Safari" "SizeUp" "SystemUIServer" \
-	"Terminal" "Transmission" "Twitter" "iCal"; do
+	"Transmission" "Twitter" "iCal"; do
 	killall "${app}" > /dev/null 2>&1
 done
 
-sleep 2
+sleep 3
 
 # Reopen apps that were closed that should always be open
 if [ -e ~/Applications/Sizeup.app ]; then open ~/Applications/Sizeup.app; fi
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."
+
+echo "Closing Terminal, press any key..."
+read KEY
+
+killall Terminal > /dev/null 2>&1
