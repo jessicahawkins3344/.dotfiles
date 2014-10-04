@@ -17,8 +17,10 @@ cd .dotfiles
 ./makesymlinks.sh
 ```
 
-You can also just run my updater script without installing any dotfiles. This will install any system updates, set up current command line development tools, and install basic brew, brew cask and rvm package managers for easy addtional of your own tools. This script runs using curl, and will not leave itself on your system.
+You can also just run my OSX updater script without installing any dotfiles. This will install any system updates, set up current command line development tools, and install basic brew, brew cask and rvm package managers for easy addtional of your own tools. This script runs using curl, and will not leave itself on your system.
 
 ```
 curl -L https://raw.githubusercontent.com/ChristopherA/dotfiles/master/install/allosxupdates.sh | bash
 ```
+
+The shell script at `~/.dotfiles/install/installosx.sh` can also be run independently of the rest of these dotfiles, and is full of OSX "default write" preferences that are useful. However, it can't be run from curl quit yet.
