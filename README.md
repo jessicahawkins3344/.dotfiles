@@ -1,3 +1,8 @@
+ChristopherA's dotfiles
+-----------------------
+
+My personal dotfiles and shell tools.
+
 Currently optimized for Apple Mac OSX Mavericks & Yosemite, but the long range goal is that they will also work on a Linux VPS.
 
 Always a work-in-progress, but usable.
