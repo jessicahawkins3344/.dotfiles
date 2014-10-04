@@ -185,6 +185,7 @@ if [[ `uname` == 'Darwin' ]]; then
     ### also updates curses
     brew tap homebrew/dupes
     brew install nano
+    ### .nanorc and nano colors forked https://github.com/scopatz/nanorc
 
     # Cleaning up Brew and Cask caches
 
