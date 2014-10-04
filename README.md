@@ -27,7 +27,7 @@ git clone https://github.com/ChristopherA/dotfiles.git ~/.dotfiles
 cd .dotfiles
 ./makesymlinks.sh
 ```
-When you are ready, you can fork this repository to use it yourself on multiple machines. You will need to create your own ~/.bash_profile.local file with your git credentials ([example](https://gist.github.com/ChristopherA/503b172a5fcae5410492), but otherwise it is ready to for you to customize yourself.
+When you are ready, you can fork this repository to use it yourself on multiple machines. You will need to create your own ~/.bash_profile.local file with your git credentials ([example](https://gist.github.com/ChristopherA/503b172a5fcae5410492)), but otherwise it is ready to for you to customize yourself.
 
 The shell script at `~/.dotfiles/install/installosx.sh` can also be run independently of the rest of these dotfiles, and is full of OSX "default write" preferences that are useful. However, the script can't be run from curl quit yet so you'll have to copy it to your home directory to use it.
 
