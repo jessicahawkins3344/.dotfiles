@@ -101,27 +101,6 @@ if [[ `uname` == 'Darwin' ]]; then
       echo -e "\n    Apple Command Line Tools already installed."
     fi
 
-    # Update Ruby
-
-    echo -e "\n  Updating Ruby,,."
-    echo "  Please be patient. This process may take a while to complete."
-
-    # disable documentation installation to speed up gem update
-
-    # Don't install documentation
-    echo "gem: --no-document" >> ~/.gemrc
-
-    sudo gem update --system
-    curl -L https://get.rvm.io | bash -s stable --rails --autolibs=enable
-    sudo gem update --system
-
-    echo -e "\n  Ruby updated."
-
-    source ~/.rvm/scripts/rvm
-
-    echo -e "\n  Ruby is installed and updated."
-
-
     # Install Homebrew http://brew.sh or search for brew formulae at http://braumeister.org
 
     echo -e "\n  Checking to see if Homebrew is installed."
