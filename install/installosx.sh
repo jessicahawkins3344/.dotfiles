@@ -19,6 +19,18 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until `.osx` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+DOTFILES="$HOME/.dotfiles"
+BIN="/usr/local/bin"
+
+if [ -e "/Applications/Dropbox.app" ] || [ -e "~/Applications/Dropbox.app" ]
+then
+  ## Dropbox.app exists
+  PERSONAL_DROPBOX_PATH = $(tr '\n' ' ' < ~/.dropbox/info.json | sed -n 's/.*"personal":[^}]*"path": "\([^"]*\)",.*/\1/p')
+else
+  ## Dropbox.app does not exist
+  PERSONAL_DROPBOX_PATH = ""
+fi
+
 ###############################################################################
 # General UI/UX                                                               #
 ###############################################################################
@@ -712,10 +724,9 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
 # exclude directories from Time Machine backups
 
-
 # The ~/Pool folder is for media files that don't need to be backed up.
-if [ ! -d ~/Pool ]; then mkdir ~/Pool
-if [ -d ~/Pool ]; then tmutil addexclusion ~Pool
+if [ ! -d ~/Pool ]; then mkdir ~/Pool; fi
+if [ -d ~/Pool ]; then tmutil addexclusion ~/Pool; fi
 
 ###############################################################################
 # Activity Monitor                                                            #
