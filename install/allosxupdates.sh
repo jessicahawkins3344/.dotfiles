@@ -173,27 +173,15 @@ if [[ `uname` == 'Darwin' ]]; then
 
     echo "    Cask installed and updated."
 
-    # Install essential Brew and Casks here
+    # Essentials, installed even if brew and cask bundles files not available
 
     brew install git # http://git-scm.com
-    brew install hub # https://hub.github.com
-    brew install git-extras # https://github.com/visionmedia/git-extras
-    brew install bash-completion # http://bash-completion.alioth.debian.org
 
-    ### update Mac OSX's nano
-    ### as per https://github.com/Homebrew/homebrew-dupes
-    ### also updates curses
-    brew tap homebrew/dupes
-    brew install nano
-    ### .nanorc and nano colors forked https://github.com/scopatz/nanorc
+    # Basics bundles, install if exist
 
-    # Cleaning up Brew and Cask caches
+    if [ -e ~/.dotfiles/install/brewfile-basic ]; then brew bundle ~/.dotfiles/install/brewfile-basic; fi
 
-    echo "Cleaning up Brew and brew Cask caches"
-    brew linkapps
-    brew cleanup
-    brew prune
-    brew cask cleanup
+    if [ -e ~/.dotfiles/install/caskfile-basic ]; then brew bundle ~/.dotfiles/install/caskfile-basic; fi
 
     # The whathis database, used by whatis and apropos, is only generated weekly, so run it after adding commands.
 

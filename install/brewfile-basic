@@ -1,0 +1,20 @@
+# Install basic set brew bundles
+# Usage: `brew bundle ~/.dotfiles/install/brewfile-basic`
+
+# Important early installs
+install hub # https://hub.github.com
+install git-extras # https://github.com/visionmedia/git-extras
+install bash-completion # http://bash-completion.alioth.debian.org
+
+# update Mac OSX's nano
+# as per https://github.com/Homebrew/homebrew-dupes
+# also updates curses
+### .nanorc and nano colors forked https://github.com/scopatz/nanorc
+brew tap homebrew/dupes
+brew install nano
+
+# Cleaning up Brew caches
+
+linkapps
+cleanup
+prune
