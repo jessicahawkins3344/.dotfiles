@@ -22,14 +22,20 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 DOTFILES="$HOME/.dotfiles"
 BIN="/usr/local/bin"
 
-if [ -e "/Applications/Dropbox.app" ] || [ -e "~/Applications/Dropbox.app" ]
+if [ -e ~/.dropbox/info.json ]
 then
-  ## Dropbox.app exists
-  ## info as per https://www.dropbox.com/help/4584 &
-  ## http://stackoverflow.com/questions/26187788/retrieve-dropbox-personal-path-from-dropbox-info-json-in-bash-script
-  PERSONAL_DROPBOX_PATH = $(tr '\n' ' ' < ~/.dropbox/info.json | sed -n 's/.*"personal":[^}]*"path": "\([^"]*\)",.*/\1/p')
+  if [ -e "/Applications/Dropbox.app" ] || [ -e "~/Applications/Dropbox.app" ]
+  then
+    ## Dropbox.app exists
+    ## info as per https://www.dropbox.com/help/4584 &
+    ## http://stackoverflow.com/questions/26187788/retrieve-dropbox-personal-path-from-dropbox-info-json-in-bash-script
+    PERSONAL_DROPBOX_PATH = $(tr '\n' ' ' < ~/.dropbox/info.json | sed -n 's/.*"personal":[^}]*"path": "\([^"]*\)",.*/\1/p')
+  else
+    ## Dropbox.app does not exist
+    PERSONAL_DROPBOX_PATH = ""
+  fi
 else
-  ## Dropbox.app does not exist
+  ## Dropbox.app has never been installed
   PERSONAL_DROPBOX_PATH = ""
 fi
 
@@ -211,7 +217,7 @@ defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
 defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 
 # Disable press-and-hold for keys in favor of key repeat
-defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+#defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Set a blazingly fast keyboard repeat rate
 defaults write NSGlobalDomain KeyRepeat -int 2
