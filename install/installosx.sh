@@ -22,6 +22,8 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 DOTFILES="$HOME/.dotfiles"
 BIN="/usr/local/bin"
 
+# Is Dropbox installed? If yes, find path
+
 if [ -e ~/.dropbox/info.json ]
 then
   if [ -e "/Applications/Dropbox.app" ] || [ -e "~/Applications/Dropbox.app" ]
@@ -32,14 +34,14 @@ then
     PERSONAL_DROPBOX_PATH=$(tr '\n' ' ' < ~/.dropbox/info.json | sed -n 's/.*"personal":[^}]*"path": "\([^"]*\)",.*/\1/p')
   else
     ## Dropbox.app does not exist
-    PERSONAL_DROPBOX_PATH = ""
+    PERSONAL_DROPBOX_PATH=""
   fi
 else
   ## Dropbox.app has never been installed
-  PERSONAL_DROPBOX_PATH = ""
+  PERSONAL_DROPBOX_PATH=""
 fi
 
-if [ $PERSONAL_DROPBOX_PATH ]; then echo "Drobox is installed at $PERSONAL_DROPBOX_PATH"; else echo "Dropbox is either not installed or is not functioning"; fi
+if [ $PERSONAL_DROPBOX_PATH ]; then echo "Drobox is installed at $PERSONAL_DROPBOX_PATH"; else echo "Dropbox is either not installed or is not functioning"; fiir
 
 ###############################################################################
 # General UI/UX                                                               #
