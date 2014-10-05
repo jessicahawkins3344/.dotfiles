@@ -158,9 +158,9 @@ if [[ `uname` == 'Darwin' ]]; then
 
     # Basics bundles, install if exist
 
-    if [ -e ~/.dotfiles/install/brewfile-basic ]; then brew bundle ~/.dotfiles/install/brewfile-basic; fi
+    if [ -e ~/.dotfiles/install/brewfile-basic.sh ]; then source ~/.dotfiles/install/brewfile-basic.sh; fi
 
-    if [ -e ~/.dotfiles/install/caskfile-basic ]; then brew bundle ~/.dotfiles/install/caskfile-basic; fi
+    if [ -e ~/.dotfiles/install/caskfile-basic.sh ]; then source ~/.dotfiles/install/caskfile-basic.sh; fi
 
     # The whathis database, used by whatis and apropos, is only generated weekly, so run it after adding commands.
 
