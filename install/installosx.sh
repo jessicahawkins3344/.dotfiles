@@ -41,7 +41,7 @@ else
   PERSONAL_DROPBOX_PATH=""
 fi
 
-if [ $PERSONAL_DROPBOX_PATH ]; then echo "Drobox is installed at $PERSONAL_DROPBOX_PATH"; else echo "Dropbox is either not installed or is not functioning"; fiir
+if [ $PERSONAL_DROPBOX_PATH ]; then echo "Drobox is installed at $PERSONAL_DROPBOX_PATH"; else echo "Dropbox is either not installed or is not functioning"; fi
 
 ###############################################################################
 # General UI/UX                                                               #
