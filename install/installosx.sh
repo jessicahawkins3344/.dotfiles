@@ -29,7 +29,7 @@ then
     ## Dropbox.app exists
     ## info as per https://www.dropbox.com/help/4584 &
     ## http://stackoverflow.com/questions/26187788/retrieve-dropbox-personal-path-from-dropbox-info-json-in-bash-script
-    PERSONAL_DROPBOX_PATH = $(tr '\n' ' ' < ~/.dropbox/info.json | sed -n 's/.*"personal":[^}]*"path": "\([^"]*\)",.*/\1/p')
+    PERSONAL_DROPBOX_PATH=$(tr '\n' ' ' < ~/.dropbox/info.json | sed -n 's/.*"personal":[^}]*"path": "\([^"]*\)",.*/\1/p')
   else
     ## Dropbox.app does not exist
     PERSONAL_DROPBOX_PATH = ""
@@ -38,6 +38,8 @@ else
   ## Dropbox.app has never been installed
   PERSONAL_DROPBOX_PATH = ""
 fi
+
+if [ $PERSONAL_DROPBOX_PATH ]; then echo "Drobox is installed at $PERSONAL_DROPBOX_PATH"; else echo "Dropbox is either not installed or is not functioning"; fi
 
 ###############################################################################
 # General UI/UX                                                               #
