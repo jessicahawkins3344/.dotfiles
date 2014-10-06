@@ -4,6 +4,10 @@
 #
 # also sourced by `allosxupdates.sh`
 
+# Can be executed remotely on a new machine via:
+
+# $ curl -L https://raw.githubusercontent.com/ChristopherA/dotfiles/master/install/brew-updates.sh
+
 # Script Debugger
 
 #SCRIPT_DEBUG=true
@@ -16,7 +20,7 @@ brew_updates() {
 
 # Check for Homebrew
 if test ! $(which brew); then
-  if $SCRIPT_DEBUG; then echo "Installing homebrew..."; fi
+  if $SCRIPT_DEBUG; then echo "...Installing Homebrew."; fi
 
   if $SCRIPT_DEBUG
     then
@@ -36,13 +40,13 @@ if test ! $(which brew); then
       brew doctor > /dev/null
   fi
 
-  if $SCRIPT_DEBUG; then echo "Homebrew installed."; fi
+  if $SCRIPT_DEBUG; then echo "...Homebrew installed."; fi
 
 fi
 
 # Update the latest version of Homebrew
 
-if $SCRIPT_DEBUG; then echo "Updating Homebrew."; fi
+if $SCRIPT_DEBUG; then echo "...Updating Homebrew."; fi
 
 if $SCRIPT_DEBUG
   then
@@ -96,7 +100,7 @@ if $SCRIPT_DEBUG
     brew prune > /dev/null
 fi
 
-if $SCRIPT_DEBUG; then echo "Homebrew updated."; fi
+if $SCRIPT_DEBUG; then echo "...Homebrew updated."; fi
 
 
 } # end function load_bashrc_files()
