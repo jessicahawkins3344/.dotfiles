@@ -16,7 +16,7 @@ brew cask install sizeup
 brew cask install google-chrome
 
 # Less essential
-cask install transmission
+brew cask install transmission
 
 # cleanup
 brew linkapps

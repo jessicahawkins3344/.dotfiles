@@ -103,54 +103,11 @@ if [[ `uname` == 'Darwin' ]]; then
 
     # Install Homebrew http://brew.sh or search for brew formulae at http://braumeister.org
 
-    echo -e "\n  Checking to see if Homebrew is installed."
-
-    if ! which brew &> /dev/null
-    then
-      echo "    Homebrew not installed. Installing..."
-      echo "    Please be patient. This process may take a while to complete."
-
-      ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-      echo -e "\n    Finished installing Homebrew."
-
-    else
-        echo -e "\n    Homebrew already installed."
-    fi
-
-    echo "    Checking Homebrew configuration..."
-
-    brew doctor
-    brew update
-    brew upgrade
-    brew linkapps
-    brew cleanup
-    brew prune
+    source ~/install/brew-updates.sh
 
     # Install Brew Cask: http://caskroom.io
 
-    echo -e "\n  Checking to see if Brew Cask is installed."
-
-    if ! brew cask &> /dev/null
-    then
-      echo "    Cask not installed. Installing..."
-      echo "    Please be patient. This process may take a while to complete."
-
-      brew install caskroom/cask/brew-cask
-
-      echo -e "\n    Finished installing Cask."
-
-    else
-        echo -e "\n    Cask already installed, updating..."
-        brew upgrade brew-cask &> /dev/null
-    fi
-
-    echo "    Checking Brew Cask configuration..."
-
-    brew cleanup
-    brew cask cleanup
-
-    echo "    Cask installed and updated."
+    source ~/install/cask-install.sh
 
     # Essentials, installed even if brew and cask bundles files not available
 

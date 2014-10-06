@@ -11,8 +11,8 @@ brew install bash-completion # http://bash-completion.alioth.debian.org
 brew install python
 
 # update Mac OSX's nano
-tap homebrew/dupes #https://github.com/Homebrew/homebrew-dupes
-install nano #http://www.nano-editor.org
+brew tap homebrew/dupes #https://github.com/Homebrew/homebrew-dupes
+brew install nano #http://www.nano-editor.org
 ## also updates curses
 ## .nanorc and nano colors forked from https://github.com/scopatz/nanorc
 
