@@ -312,7 +312,7 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 #defaults write com.apple.finder AppleShowAllFiles -bool true
 
 # Finder: show all filename extensions true/false
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+#defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 # Finder: show status bar
 defaults write com.apple.finder ShowStatusBar -bool true
@@ -354,14 +354,14 @@ defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 # Show icon preview
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showIconPreview true" ~/Library/Preferences/com.apple.finder.plist
 
-# Show item info near icons on the desktop and in other icon views
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
+# Show item info near icons on the desktop and in other icon views, true on, false off
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showItemInfo false" ~/Library/Preferences/com.apple.finder.plist
 
-# Show item info to the right of the icons on the desktop
-/usr/libexec/PlistBuddy -c "Set DesktopViewSettings:IconViewSettings:labelOnBottom false" ~/Library/Preferences/com.apple.finder.plist
+# Show item info below of the icons on the desktop, false for right side
+/usr/libexec/PlistBuddy -c "Set DesktopViewSettings:IconViewSettings:labelOnBottom true" ~/Library/Preferences/com.apple.finder.plist
 
 # Increase grid spacing for icons on the desktop and in other icon views
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 100" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 80" ~/Library/Preferences/com.apple.finder.plist
 
 # Grid offset 0
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridOffsetX 0.0" ~/Library/Preferences/com.apple.finder.plist
@@ -852,11 +852,15 @@ defaults write com.irradiatedsoftware.SizeUp StartAtLogin -bool true
 defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false
 
 if [ `system_profiler SPDisplaysDataType | grep 'Cinema\|Thunderbolt' | wc -l` -eq "1" ]; then
-    # Give room on right to show icons
-    defaults write com.irradiatedsoftware.SizeUp MarginRight 220
+  # Give room on right to show icons
+  defaults write com.irradiatedsoftware.SizeUp MarginRight 120
+  defaults write com.irradiatedsoftware.SizeUp MarginHorizontal 20
+  defaults write com.irradiatedsoftware.SizeUp MarginVertical 20
 else #we are on laptop screen
   # On laptop, fill screen
-  defaults write com.irradiatedsoftware.SizeUp MarginRight 240
+  defaults write com.irradiatedsoftware.SizeUp MarginRight 0
+  defaults write com.irradiatedsoftware.SizeUp MarginHorizontal 0
+  defaults write com.irradiatedsoftware.SizeUp MarginVertical 0
 fi
 
 ###############################################################################
