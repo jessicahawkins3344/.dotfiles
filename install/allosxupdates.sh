@@ -101,6 +101,13 @@ if [[ `uname` == 'Darwin' ]]; then
       echo -e "\n    Apple Command Line Tools already installed."
     fi
 
+    # Create local applications folder
+
+    echo -e "\n    Creating ~/Applications if it doesn't exist"
+
+    if [ ! -d ~/Applications ]; then mkdir ~/Applications; fi
+
+
     # Install Homebrew http://brew.sh if exits, force via curl if necessary
 
     if [ -e ~/.dotfiles/install/brew-updates.sh ]
