@@ -10,8 +10,8 @@
 
 # Script Debugger
 
-#SCRIPT_DEBUG=true
-SCRIPT_DEBUG=false
+SCRIPT_DEBUG=true
+#SCRIPT_DEBUG=false
 
 # kill on error
 set -e
