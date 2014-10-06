@@ -130,11 +130,15 @@ if [[ `uname` == 'Darwin' ]]; then
 
     brew install git # http://git-scm.com
 
-    # Basics bundles, install if exist
+    # Basics bundles, install if they exist
 
     if [ -e ~/.dotfiles/install/brewfile-basic.sh ]; then source ~/.dotfiles/install/brewfile-basic.sh; fi
 
     if [ -e ~/.dotfiles/install/caskfile-basic.sh ]; then source ~/.dotfiles/install/caskfile-basic.sh; fi
+
+    # local brew & cask, if file exist in home dir then install
+
+    if [ -e ~/brewfile_local.sh ]; then source ~/brewfile_local.sh; fi
 
     # The whathis database, used by whatis and apropos, is only generated weekly, so run it after adding commands.
 
