@@ -101,13 +101,23 @@ if [[ `uname` == 'Darwin' ]]; then
       echo -e "\n    Apple Command Line Tools already installed."
     fi
 
-    # Install Homebrew http://brew.sh or search for brew formulae at http://braumeister.org
+    # Install Homebrew http://brew.sh if exits, force via curl if necessary
 
-    source ~/install/brew-updates.sh
+    if [ -e ~/.dotfiles/install/brew-updates.sh ]
+      then
+        source ~/.dotfiles/install/brew-updates.sh
+      else
+        curl -L https://raw.githubusercontent.com/ChristopherA/dotfiles/master/install/brew-updates.sh | bash
+      fi
 
     # Install Brew Cask: http://caskroom.io
 
-    source ~/install/cask-install.sh
+    if [ -e ~/.dotfiles/install/brew-updates.sh ]
+      then
+        source ~/.dotfiles/install/cask-install.sh
+      else
+        curl -L https://raw.githubusercontent.com/ChristopherA/dotfiles/master/install/cask-install.sh | bash
+      fi
 
     # Essentials, installed even if brew and cask bundles files not available
 
