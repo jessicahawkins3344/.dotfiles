@@ -138,7 +138,7 @@ if [[ `uname` == 'Darwin' ]]; then
 
     # local brew & cask, if file exist in home dir then install
 
-    if [ -e ~/brewfile_local.sh ]; then source ~/brewfile_local.sh; fi
+    if [ -e ~/.brewfile_local.sh ]; then source ~/.brewfile_local.sh; fi
 
     # The whathis database, used by whatis and apropos, is only generated weekly, so run it after adding commands.
 
