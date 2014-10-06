@@ -459,8 +459,12 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow DesktopPicture "/
 
 echo "Clock, Dock, Dashboard, and hot corners"
 
-# Set date and time format e.g. ""E MMM d HH:mm"" is Sun 11 Aug 16:55
-defaults write com.apple.menuextra.clock DateFormat -string "MMM d HH:mm"
+# Set date and time format e.g. "E MMM d HH:mm" is Sun 11 Aug 16:55
+# defaults write com.apple.menuextra.clock DateFormat -string "HELLO WORLD"
+# defaults write com.apple.menuextra.clock DateFormat -string "M dd h:mm a"
+# defaults write com.apple.menuextra.clock DateFormat -string "MM dd h:mm"
+# defaults write com.apple.menuextra.clock DateFormat -string "MMM d HH:mm"
+defaults write com.apple.menuextra.clock DateFormat -string "h:mm a"
 
 # Position the Dock on the left
 defaults write com.apple.dock orientation left
