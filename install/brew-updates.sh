@@ -58,7 +58,7 @@ fi
 
 # Upgrade outdated, unpinned brews
 
-if $SCRIPT_DEBUG; then echo "...Upgrade outdated, unpinned brews."; fi
+if $SCRIPT_DEBUG; then echo "...Upgrade any outdated, unpinned brews."; fi
 
 if $SCRIPT_DEBUG
   then
