@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # ~/.dotfiles/install/brew-updates.sh -- update brew, install it if necessary
+# http://brew.sh, search for brew formulae at http://braumeister.org
 #
 # also sourced by `allosxupdates.sh`
 
