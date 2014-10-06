@@ -19,7 +19,7 @@ brew cask install google-chrome
 brew cask install transmission
 
 # cleanup
-brew linkapps
+brew linkapps --local
 brew cleanup
 brew prune
 brew cask cleanup

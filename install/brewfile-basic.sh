@@ -21,6 +21,6 @@ brew install mackup # https://github.com/lra/mackup
 
 # Cleaning up Brew caches
 
-brew linkapps
+brew linkapps --local
 brew cleanup
 brew prune
