@@ -47,23 +47,19 @@ if $SCRIPT_DEBUG; then echo -e "...Checking if Brew Cask is installed."; fi
 
 if ! brew cask &> /dev/null
   then
-    if $SCRIPT_DEBUG; then echo "...Cask not installed. Installing."; fi
-
-    brew install caskroom/cask/brew-cask
+    if $SCRIPT_DEBUG
+      then
+        echo "...Cask not installed. Installing."
+        brew install caskroom/cask/brew-cask
+      else
+        brew install caskroom/cask/brew-cask > /dev/null
+    fi
 
     if $SCRIPT_DEBUG; then echo -e "...Finished installing Cask."; fi
 
   else
     if $SCRIPT_DEBUG; then echo -e "Cask already installed."; fi
 
-fi
-
-if $SCRIPT_DEBUG
-  then
-    echo "...Cask not installed. Installing."
-    brew install caskroom/cask/brew-cask
-  else
-    brew install caskroom/cask/brew-cask > /dev/null
 fi
 
 # Update the latest version of Homebrew
