@@ -6,7 +6,7 @@
 
 # Can be executed remotely on a new machine via:
 
-# $ curl -L https://raw.githubusercontent.com/ChristopherA/dotfiles/master/install/brew-updates.sh
+# $ curl -L https://raw.githubusercontent.com/ChristopherA/dotfiles/master/install/brew-updates.sh | bash
 
 # Script Debugger
 
