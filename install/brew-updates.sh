@@ -56,7 +56,7 @@ if $SCRIPT_DEBUG
     brew update > /dev/null
 fi
 
-# Upgrade outdated, unpinned brews
+# Upgrade any outdated, unpinned brews
 
 if $SCRIPT_DEBUG; then echo "...Upgrade any outdated, unpinned brews."; fi
 
@@ -79,7 +79,7 @@ if $SCRIPT_DEBUG
 fi
 
 
-# Cleanup old brew formula
+# Cleanup old Homebrew formula
 
 if $SCRIPT_DEBUG; then echo "...Cleanup old brew formula."; fi
 
@@ -90,7 +90,7 @@ if $SCRIPT_DEBUG
     brew cleanup > /dev/null
 fi
 
-# Prune dead symlinks
+# Prune dead Homebrew symlinks
 
 if $SCRIPT_DEBUG; then echo "...Prune dead symlinks."; fi
 
