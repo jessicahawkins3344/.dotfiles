@@ -140,7 +140,13 @@ if [[ `uname` == 'Darwin' ]]; then
 
     if [ -e ~/.brewfile_local.sh ]; then source ~/.brewfile_local.sh; fi
 
-    # The whathis database, used by whatis and apropos, is only generated weekly, so run it after adding commands.
+    # Update the locate database. This will happen in the background and can
+    # take some time to generate the first time.
+
+    sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
+
+    # The whathis database, used by whatis and apropos, is only generated weekly,
+    # so run it after adding commands.
 
     sudo periodic weekly
 
