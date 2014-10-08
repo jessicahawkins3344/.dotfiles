@@ -8,6 +8,8 @@
 brew install hub # https://hub.github.com
 brew install git-extras # https://github.com/visionmedia/git-extras
 brew install bash-completion # http://bash-completion.alioth.debian.org
+brew install bash-git-prompt # https://github.com/magicmonty/bash-git-prompt
+brew install grc # http://korpus.juls.savba.sk/~garabik/software/grc.html
 brew install python
 
 # update Mac OSX's nano
