@@ -140,15 +140,28 @@ if [[ `uname` == 'Darwin' ]]; then
 
     if [ -e ~/.brewfile_local.sh ]; then source ~/.brewfile_local.sh; fi
 
+    # Clean log files
+    sudo rm -rf /var/log/*
+
+    # Force empty trash
+    sudo rm -rf ~/.Trash/*
+
+    # Run maintenance scripts
+    # The whathis database, used by whatis and apropos, is only generated weekly,
+    # so run it after changing commands.
+
+    sudo periodic daily weekly monthly
+
     # Update the locate database. This will happen in the background and can
     # take some time to generate the first time.
 
     sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
 
-    # The whathis database, used by whatis and apropos, is only generated weekly,
-    # so run it after adding commands.
+    # Repair startup volume
+    sudo fsck -fy
 
-    sudo periodic weekly
+    # Repair disk permissions
+    sudo diskutil repairPermissions /
 
  else
    echo "This script only supports OSX 10.9 Mavericks or better! Exiting..."
