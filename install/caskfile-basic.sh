@@ -17,6 +17,7 @@ brew cask install sizeup
 brew cask install atom
 brew cask install google-chrome
 brew cask install dash # http://kapeli.com/dash
+brew cask install github #https://mac.github.com
 
 # Less essential
 brew cask install transmission
@@ -26,3 +27,12 @@ brew linkapps --local
 brew cleanup
 brew prune
 brew cask cleanup
+
+# Apps not available in brew cask
+
+# Logitech Preference Manager
+## https://support.logitech.com/en_us/Product/illuminated-keyboard-for-mac-ipad-iphone
+
+# Mac App Store apps that need to be downloaded
+
+##
