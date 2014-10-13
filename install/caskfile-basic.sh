@@ -13,11 +13,18 @@ brew cask install dropbox
 brew cask install mailplane
 brew cask install sizeup
 
-# Dev Tools
+# Development Tools
 brew cask install atom
 brew cask install google-chrome
 brew cask install dash # http://kapeli.com/dash
 brew cask install github #https://mac.github.com
+
+# Android Development Tools
+brew cask install java # http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+brew cask install android-studio-bundle http://developer.android.com/sdk/installing/studio.html
+#! add adb to path?
+brew cask install virtualbox # https://www.virtualbox.org
+brew cask install genymotion # http://www.genymotion.com
 
 # Less essential
 brew cask install transmission
