@@ -18,9 +18,6 @@ brew install nano #http://www.nano-editor.org
 ## also updates curses
 ## .nanorc and nano colors forked from https://github.com/scopatz/nanorc
 
-brew install mackup # https://github.com/lra/mackup
-## Note that there is a .mackup.cfg already in these dotfiles
-
 # Cleaning up Brew caches
 
 brew linkapps --local
