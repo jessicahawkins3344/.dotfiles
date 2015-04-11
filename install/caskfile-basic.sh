@@ -5,32 +5,13 @@
 #
 # also sourced by `allosxupdates.sh`
 
-# Essential Utilities
-brew cask install dropbox
-brew cask install mailplane
-brew cask install sizeup
-
 # Development Tools
 brew cask install atom
-brew cask install google-chrome
-brew cask install dash # http://kapeli.com/dash
 brew cask install github #https://mac.github.com
 brew cask install java # http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-
-# Less essential
-brew cask install transmission
 
 # cleanup
 brew linkapps --local
 brew cleanup
 brew prune
 brew cask cleanup
-
-# Apps not available in brew cask
-
-# Logitech Preference Manager
-## https://support.logitech.com/en_us/Product/illuminated-keyboard-for-mac-ipad-iphone
-
-# Mac App Store apps that need to be downloaded
-
-##
