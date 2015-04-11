@@ -4,7 +4,7 @@
 
 echo "...~/.dotfiles/shell/bash_prompt loaded."
 
-if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ];
+if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ];
 then
   # gitprompt configuration
   # as per https://github.com/magicmonty/bash-git-prompt
@@ -25,7 +25,7 @@ then
   GIT_PROMPT_THEME=Custom # use custom .git-prompt-colors.sh
   # GIT_PROMPT_THEME=Solarized # use theme optimized for solarized color scheme
 
-  source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
+  source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
 else
   # Apple default terminal prompt from /private/etc/bashrc
 
