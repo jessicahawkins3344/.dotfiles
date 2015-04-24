@@ -48,3 +48,10 @@ git config --global color.branch auto
   if [ -f "$(brew --prefix)/etc/grc.bashrc" ]; then
     source "$(brew --prefix)/etc/grc.bashrc"
   fi
+
+## from `brew install bash-git-prompt` # https://github.com/magicmonty/bash-git-prompt
+
+  if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
+    GIT_PROMPT_THEME=Solarized
+    source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
+  fi
