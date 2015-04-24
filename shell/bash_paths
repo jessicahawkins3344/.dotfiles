@@ -4,6 +4,8 @@
 
 echo "...~/.dotfiles/shell/bash_paths loaded."
 
+export GOPATH=$HOME/projects/go
+
 # Directories to be prepended to PATH
 declare -a dirs_to_prepend=(
     "/usr/local/bin" # Ensure that this bin always takes precedence over `/usr/bin`
@@ -15,6 +17,7 @@ declare -a dirs_to_append=(
     "$HOME/bin"
     "$HOME/.dotfiles/bin"
     "$HOME/.rvm/bin"
+    "$GOPATH/bin"
     "$(brew --prefix coreutils)/libexec/gnubin" # Add brew-installed GNU core utilities bin
     "$(brew --prefix)/share/npm/bin" # Add npm-installed package bin
     "~/.rvm/scripts/rvm" #rvm shell
