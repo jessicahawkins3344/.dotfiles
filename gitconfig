@@ -18,3 +18,5 @@
 [user]
 	name = Jessica Hawkins
 	email = jessicarhawkins08@icloud.com
+[push]
+	default = simple
