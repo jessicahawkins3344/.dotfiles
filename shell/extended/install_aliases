@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# install_aliases
+
+echo "install_aliases loaded"
+
+# Update Homebrew
+alias bu="source ~/.dotfiles/install/brew-updates.sh"
+
+alias brewfest='brew update && brew upgrade --all && brew cleanup'

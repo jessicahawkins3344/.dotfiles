@@ -1,0 +1,20 @@
+[color]
+    # color opts: normal, black, red, green, yellow, blue, magenta, cyan, or white
+	ui = true
+    interactive = auto
+	diff = auto
+	status = auto
+	branch = auto
+
+[core]
+    # Use custom `.gitignore` and `.gitattributes`
+    excludesfile = ~/.gitignore
+    attributesfile = ~/.gitattributes
+	editor = subl -n -w
+
+[user]
+
+
+[user]
+	name = Jessica Hawkins
+	email = jessicarhawkins08@icloud.com
