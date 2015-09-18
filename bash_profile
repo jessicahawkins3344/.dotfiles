@@ -31,3 +31,4 @@ unset load_bash_profile_files
 # Here we source ~/.bashrc which will then source ~/.profile.
 
 if [ -f ~/.bashrc ]; then source ~/.bashrc; fi
+source /Users/jessicahawkins/extras/composure.sh

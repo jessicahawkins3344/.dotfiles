@@ -1,0 +1,7 @@
+[user]
+	name = Jessica Hawkins
+	email = jessicarhawkins08@icloud.com
+[credential]
+	helper = osxkeychain
+[color]
+	ui = true

@@ -2,7 +2,7 @@
 
 # bash_aliases
 
-echo "...~/.dotfiles/shell/bash_aliases loaded."
+echo "bash_aliases loaded"
 
 # Allow aliases to be with sudo
 alias sudo="sudo "
@@ -55,6 +55,9 @@ alias hidedotfiles="defaults write com.apple.finder AppleShowAllFiles -bool fals
 # Hide/show all desktop icons (useful when presenting)
 alias showdeskicons="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 alias hidedeskicons="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+
+# Show $PATH in a readable way
+alias path='echo -e ${PATH//:/\\n}'
 
 # cd to the path of the front Finder window
 cdf() {

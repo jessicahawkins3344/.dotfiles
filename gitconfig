@@ -53,6 +53,7 @@
     # Use custom `.gitignore` and `.gitattributes`
     excludesfile = ~/.gitignore
     attributesfile = ~/.gitattributes
+	editor = subl -n -w
 
 [credential]
 	helper = osxkeychain
@@ -72,8 +73,8 @@
 [push]
     default = simple
 [user]
-	name = ChristopherA
-	email = ChristopherA@hackathon.net
+	name = Jessica Hawkins
+	email = jessicarhawkins08@icloud.com
 [filter "media"]
 	required = true
 	clean = git media clean %f

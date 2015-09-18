@@ -16,10 +16,12 @@ echo "~/.bashrc loaded."
 
 load_bashrc_files() {
     declare -a files=(
-#        $HOME/.rvm/scripts/rvm # Load RVM into a shell session *as a function*
+#       $HOME/.rvm/scripts/rvm # Load RVM into a shell session *as a function*
         $HOME/.dotfiles/shell/bash_options # Options
         $HOME/.dotfiles/shell/bash_exports # Exports
         $HOME/.dotfiles/shell/functions/* # Functions
+        $HOME/.dotfiles/lib/* # Lib Functions
+        $HOME/.dotfiles/plugins/* # Bash Plugins
         $HOME/.bash_profile.local # Local and private settings not under version control (e.g. git credentials)
     )
 

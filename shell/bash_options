@@ -2,7 +2,7 @@
 
 # bash_options
 
-echo "...~/.dotfiles/shell/bash_options loaded."
+echo "bash_options loaded."
 
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell

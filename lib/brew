@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "/lib 'brew' 'help' 'list' 'npm' 'utils' loaded."
+
 run_brew() {
 
     # Check for Homebrew
@@ -11,7 +13,7 @@ run_brew() {
 
         e_header "Updating any existing Homebrew formulae..."
         # Upgrade any already-installed formulae
-        brew upgrade
+        brew upgrade --all
         [[ $? ]] && e_success "Done"
 
         e_header "Checking status of desired Homebrew formulae..."

@@ -29,6 +29,7 @@ load_profile_files() {
     declare -a files=(
         $HOME/.dotfiles/shell/bash_paths # Path modifications
         $HOME/.dotfiles/shell/bash_aliases # Aliases
+        $HOME/.dotfiles/shell/extended/* # Extended Aliases
     )
 
     # if these files are readable, source them
