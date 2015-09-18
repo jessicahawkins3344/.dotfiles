@@ -74,7 +74,7 @@
     default = simple
 [user]
 	name = Jessica Hawkins
-	email = jessicarhawkins08@icloud.com
+	email = ChristopherA@hackathon.net
 [filter "media"]
 	required = true
 	clean = git media clean %f
